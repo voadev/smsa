@@ -1,0 +1,26 @@
+{
+  "name": "smsa",
+  "version": "1.0.0",
+  "description": "Social media sentiment analysis tool.",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voadev/smsa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/voadev/smsa/issues"
+  },
+  "homepage": "https://github.com/voadev/smsa#readme"
+}
