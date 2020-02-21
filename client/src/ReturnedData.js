@@ -40,13 +40,13 @@ class ReturnedData extends React.Component {
             return <div>Loading...</div>
         } else {
             return (
-                <ul>
+                <tbody>
                     { data.map(data => (
-                        <li key={data.id}>
-                            {data.tweet}
-                        </li>
+                        <tr key={data.id}>
+                            <td>{data.username}</td><td>{data.tweet}</td>
+                        </tr>
                     ))}
-                </ul>
+                </tbody>
             );
         }
         

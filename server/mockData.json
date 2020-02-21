@@ -1,13 +1,17 @@
 [{
     "id": 1,
+    "username": "@jdoe",
     "tweet": "@VOA is super!"
 }, {
     "id": 2,
+    "username": "@skunkface",
     "tweet": "@VOA is where I get all my news!"
 }, {
     "id": 3,
+    "username": "@mkeenan",
     "tweet": "The @VOA offices are pretty quite on Fridays!"
 }, {
     "id": 4,
+    "username": "@lroberts",
     "tweet": "I really can't stand that @VOA doesn't prescribe to my brand of politics!"
 }]
