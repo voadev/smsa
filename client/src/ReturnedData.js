@@ -28,16 +28,15 @@ class ReturnedData extends React.Component {
                 error
             })
         });
-        
     }
 
     render() {
         const { error, isLoaded, data } = this.state;
         console.log(data);
         if(error) {
-            return <div>Error: { error.message }</div>
+            return <tbody><tr><td>Error: { error.message }</td></tr></tbody>
         } else if(!isLoaded) {
-            return <div>Loading...</div>
+            return <tbody><tr><td>Loading...</td></tr></tbody>
         } else {
             return (
                 <tbody>
@@ -49,9 +48,7 @@ class ReturnedData extends React.Component {
                 </tbody>
             );
         }
-        
     }
-
 }
 
 export default ReturnedData;
