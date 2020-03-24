@@ -5,24 +5,29 @@ import $ from 'jquery';
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            sentimentValue: 'all'
+        }
+
+        this.setSentimentValue = this.setSentimentValue.bind(this);
+    }
 
 
   toggleSideBar() {
-    console.log('activated');
     $('.sidebar').toggleClass('active');
   }
 
+  setSentimentValue(value) {
+        this.setState({sentimentValue: value});
+        console.log('setSentimentvalue = ' + value);
+  }
+
+
   render() {
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>Social Media Sentiment Analysis App</p>
-          
-      //   </header>
-      //   <ReturnedData />
-      // </div>
-  
+
       <div className="wrapper">
           {/* <!-- Sidebar  --> */}
           <nav className="sidebar" id='sidebar'>
@@ -33,16 +38,16 @@ class App extends React.Component {
               <ul className="list-unstyled components">
       
                   <li>
-                      <a href="#">All Tweets</a>
+                      <button onClick={() => this.setSentimentValue('all')}>All Tweets</button>
                   </li>
                   <li>
-                      <a href="#">Positive Sentiment</a>
+                      <button onClick={() => this.setSentimentValue('positive')}>Positive Sentiment</button>
                   </li>
                   <li>
-                      <a href="#">Negative Sentiment</a>
+                      <button onClick={() => this.setSentimentValue('negative')}>Negative Sentiment</button>
                   </li>
                   <li>
-                      <a href="#">Neutral Sentiment</a>
+                      <button onClick={() => this.setSentimentValue('neutral')}>Neutral Sentiment</button>
                   </li>
               </ul>
       
@@ -95,7 +100,7 @@ class App extends React.Component {
                         </tr>
                         </thead>
                         
-                          <ReturnedData />
+                          <ReturnedData sentimentValue={this.state.sentimentValue} />
                         
                       </table>
                     </div>
@@ -104,7 +109,7 @@ class App extends React.Component {
           </div>
           <footer className="footer">
               <div className="container">
-                  <i className="fab fa-hooli fa-3x"></i>
+                  <i className="fab fa-hooli fa-3x" />
               </div>
           </footer>
       </div>

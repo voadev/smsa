@@ -31,22 +31,37 @@ class ReturnedData extends React.Component {
     }
 
     render() {
-        const { error, isLoaded, data } = this.state;
-        console.log(data);
+        const { error, sentimentValue, isLoaded, data } = this.state;
+        //console.log(data);
+        console.log('sentiment value = ' + sentimentValue);
+        console.log('props = ' + this.props.sentimentValue);
         if(error) {
             return <tbody><tr><td>Error: { error.message }</td></tr></tbody>
         } else if(!isLoaded) {
             return <tbody><tr><td>Loading...</td></tr></tbody>
         } else {
-            return (
-                <tbody>
+            if(this.props.sentimentValue === 'all') {
+                return (
+                    <tbody>
                     { data.map(data => (
                         <tr key={data.id}>
                             <td>{data.username}</td><td>{data.tweet}</td>
                         </tr>
                     ))}
-                </tbody>
-            );
+                    </tbody>
+                );
+            } else {
+                return (
+                    <tbody>
+                    { data.map(data => (
+                        data.sentiment === this.props.sentimentValue ?
+                            <tr key={data.id}>
+                                <td>{data.username}</td><td>{data.tweet}</td>
+                            </tr> : ''
+                    ))}
+                    </tbody>
+                );
+            }
         }
     }
 }
